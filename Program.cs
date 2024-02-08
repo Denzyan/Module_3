@@ -33,35 +33,48 @@ namespace Loops
             if ((count % 3) == 0) {Console.WriteLine($"Number {count} is multiple 3");count++; }
             else {Console.WriteLine($"Number {count} is not multiple 3"); count++; }
         Console.WriteLine();
-            /*Цикл DO WHILE
-            1. Инициализируйте переменную guess со значением 0.
-            2. Создайте цикл do-while, который будет выполняться, 
-            пока значение guess не станет равным 5.
-            3. Внутри цикла запрашивайте у пользователя число, 
-            сохраняйте его в переменную guess. (используйте следующий снипет)
-            4. Добавьте условие if-else, чтобы проверить, является ли guess 
-            больше или меньше или равно 5.
-            5. Выведите сообщение "Загаданное число меньше" или "Загаданное число больше" 
-            и “Угадали! (прервать цикл)”в зависимости от результата проверки. 
-            Примечание - цикл выполняется бесконечно пока пользователь не введет 5 - 
-            выход осуществляем с помощью break*/
+        /*Цикл DO WHILE
+        1. Инициализируйте переменную guess со значением 0.
+        2. Создайте цикл do-while, который будет выполняться, 
+        пока значение guess не станет равным 5.
+        3. Внутри цикла запрашивайте у пользователя число, 
+        сохраняйте его в переменную guess. (используйте следующий снипет)
+        4. Добавьте условие if-else, чтобы проверить, является ли guess 
+        больше или меньше или равно 5.
+        5. Выведите сообщение "Загаданное число меньше" или "Загаданное число больше" 
+        и “Угадали! (прервать цикл)”в зависимости от результата проверки. 
+        Примечание - цикл выполняется бесконечно пока пользователь не введет 5 - 
+        выход осуществляем с помощью break*/
+        byte guess = 0;
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
         do
         {
-
-        } 
-        while (true);
-
-
-
-
-
-
-
-
-
-
-
+        Console.WriteLine("Try guess, write number:");
+        guess = Convert.ToByte(Console.ReadLine());
+            if (guess > 5) Console.WriteLine("Your number is higher");
+            else if (guess < 5) Console.WriteLine("Your number is lower");
+            else { Console.Clear(); Console.WriteLine("Congratulations, you guessed right"); }
         }
+        while (guess != 5); // Думаю что в 'break' нет необходимости, т.к. при числе равном 5 программа и так выключиться.
+                           // Единственное что не обезопасил себя от ввода отличного от числа и за пределами 'byte'
+        Console.WriteLine();
+        /*Цикл FOREACH
+        1. Создайте массив numbers со значениями: 10, 20, 30, 40, 50.
+        2. Используя цикл foreach, переберите каждый элемент массива numbers.
+        3. Добавьте условие if-else, чтобы проверить, является ли текущий элемент 
+        больше 30 или меньше или равен 30.
+        4. Выведите сообщение "Элемент [элемент] больше 30" или "Элемент [элемент]
+        меньше или равен 30" в зависимости от результата проверки.*/
+        byte[] Numbers = new byte[5] {10, 20, 30, 40, 50};
+        Console.ForegroundColor= ConsoleColor.DarkGray;
+        foreach (byte Number in Numbers)
+        {
+            if (Number < 30) Console.WriteLine($"{Number} smaller than 30");
+            else if (Number == 30) Console.WriteLine($"{Number} equals 30");
+            else if (Number > 30) Console.WriteLine($"{Number} bigger than 30");
+        }
+        }
+        
 
     }
 
