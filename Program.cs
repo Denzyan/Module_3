@@ -1,25 +1,25 @@
-﻿using System.ComponentModel.Design;
-using System.Globalization;
-using System.Net.Sockets;
-using System.Security.AccessControl;
+﻿// HOME WORK "CLASS + METODS"
 
-// HOME WORK "CLASS + METODS"
-var sony = new Phone();
-sony.Color = "DarkGreen";
-sony.Price = 765;
-sony.OperationSystem = "Android";
-sony.Brand = "SONY";
+Phone sony = new Phone();
 
-var nokia = new Phone();
+sony.PhoneBoot();
 
-Console.WriteLine(sony.Brand + " " + sony.Color + " " + sony.Price);
 
-Console.WriteLine($"{nokia.Brand} {nokia.Color} {nokia.Price} {nokia.OperationSystem}");
+Phone nokia = new Phone("Nokia", "Android", "Yellow", 333);
 
-NumberFormatInfo currencySymbol = new NumberFormatInfo
-{
-    CurrencySymbol = "$"
-};
-Console.WriteLine(nokia.Price + "$", currencySymbol);
+nokia.PhoneBoot();
+
+nokia.SetPhonePrice(388);
+
+nokia.SetProvinceTax("qb");
+nokia.SetProvinceTax("bc");
+
+double newprice = nokia.GetPhonePriceWithTax();
+
+Console.WriteLine($"Phone '{nokia.Brand}' price with tax - {newprice}$");
+
+// Так и не разобрался с NumberFormatInfo.CurrentInfo.CurrencySymbol
+//  ? Возможно причина в локации.
+
 
 
